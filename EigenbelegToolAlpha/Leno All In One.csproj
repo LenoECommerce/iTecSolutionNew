@@ -1,0 +1,625 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7985C6EC-93B3-44E2-9D3D-93ADC22EFDAE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>EigenbelegToolAlpha</RootNamespace>
+    <AssemblyName>Leno Software</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>C:\Users\lenna\Desktop\Leno Main\published\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://212.227.140.237/app.publish/</InstallUrl>
+    <UpdateUrl>http://212.227.140.237/app.publish/</UpdateUrl>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>93</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>C91587FCF10F1A38248356E00F9925142EB145F2</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>EigenbelegToolAlpha_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>leno-favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>EigenbelegToolAlpha.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeStandard, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BarcodeLib.2.4.0\lib\netstandard2.0\BarcodeStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="Billbee.Api.Client, Version=2.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Billbee.Api.Client.2.4.1\lib\netstandard2.0\Billbee.Api.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="ceTe.DynamicPDF.40, Version=8.0.0.40, Culture=neutral, PublicKeyToken=09b5ce0d5c0a9d8b, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicPDF.8.0.0.0\lib\net40\ceTe.DynamicPDF.40.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=7.0.2.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.7.0.2\lib\net462\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=6.1.1.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Interfaces.6.1.1\lib\net462\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=6.1.1.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.System.Drawing.6.1.1\lib\net462\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelLibrary.1.2011.7.31\lib\ExcelLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Core, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FSharp.Core.6.0.2\lib\netstandard2.0\FSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.64.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.64.0\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.64.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.64.0\lib\net461\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.64.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.64.0\lib\net461\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.64.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.64.0\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Drive.v3, Version=1.57.0.2831, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Drive.v3.1.57.0.2831\lib\net45\Google.Apis.Drive.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.64.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.64.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Sheets.v4, Version=1.64.0.3148, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Sheets.v4.1.64.0.3148\lib\net45\Google.Apis.Sheets.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.21.8.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.21.8\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.bpac, Version=1.3.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>bin\Debug\Interop.bpac.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.2.16.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.2.16\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.2.16.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.2.16\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.7.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.7\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.5.0.0\lib\net48\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.WebUtilities, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.WebUtilities.2.0.0\lib\netstandard2.0\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.0.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.0.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Access, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSOffice.Interop.16.0.55555\lib\Microsoft.Office.Interop.Access.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Access.Dao, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSOffice.Interop.16.0.55555\lib\Microsoft.Office.Interop.Access.Dao.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Visio.WorkflowAuthoring, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSOffice.Interop.16.0.55555\lib\Microsoft.Office.Interop.Visio.WorkflowAuthoring.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Vbe.Interop, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\ThammimTech.Microsoft.Vbe.Interop.15.0.0\lib\net20\Microsoft.Vbe.Interop.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MigraDoc.DocumentObjectModel, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp-MigraDoc.1.50.5147\lib\net20\MigraDoc.DocumentObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.Rendering, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp-MigraDoc.1.50.5147\lib\net20\MigraDoc.Rendering.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.RtfRendering, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp-MigraDoc.1.50.5147\lib\net20\MigraDoc.RtfRendering.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.31.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.31\lib\net48\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySqlBackup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySqlBackup.1.0.1\lib\MySqlBackup.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPal, Version=1.9.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.9.1\lib\net451\PayPal.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPalCoreSDK, Version=1.7.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPalCoreSDK.1.7.1\lib\net451\PayPalCoreSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPalMerchantSDK, Version=2.16.250.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPalMerchantSDK.2.16.250\lib\net20\PayPalMerchantSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="PDFsharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharpNetStandard2.1.51.4845\lib\netstandard2.0\PDFsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp-MigraDoc.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharpTextExtractor, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PdfSharpTextExtractor.1.0.2\lib\netstandard2.0\PdfSharpTextExtractor.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="RestSharp, Version=108.0.3.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.108.0.3\lib\netstandard2.0\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SautinSoft.Document, Version=5.6.8.16, Culture=neutral, PublicKeyToken=e759c76c7515592a, processorArchitecture=MSIL">
+      <HintPath>..\packages\sautinsoft.document.5.6.8.16\lib\net48\SautinSoft.Document.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.CodeDom, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.CodeDom.7.0.0\lib\net462\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Specialized, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Specialized.4.3.0\lib\net46\System.Collections.Specialized.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.TraceSource, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.TraceSource.4.3.0\lib\net46\System.Diagnostics.TraceSource.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.6.0.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.6.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.5.0.1\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.5.0.2\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsInput, Version=1.0.4.0, Culture=neutral, PublicKeyToken=9b287f7dc5073cad, processorArchitecture=MSIL">
+      <HintPath>..\packages\InputSimulator.1.0.4.0\lib\net20\WindowsInput.dll</HintPath>
+    </Reference>
+    <Reference Include="ZstdNet, Version=1.4.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.31\lib\net48\ZstdNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APIs\iFreeiCloudAPIHandler.cs" />
+    <Compile Include="APIs\InfogramAPIHandler.cs" />
+    <Compile Include="APIs\NSYSAPIHandler.cs" />
+    <Compile Include="APIs\BackMarketAPIHandler.cs" />
+    <Compile Include="APIs\LexOfficeAPIHandler.cs" />
+    <Compile Include="ConstsAndEnums\BackMarketHolidayLogic.cs" />
+    <Compile Include="ConstsAndEnums\BuyBackCommunication.cs" />
+    <Compile Include="ConstsAndEnums\MainUserConsts.cs" />
+    <Compile Include="ConstsAndEnums\OnboardingInstructionsConsts.cs" />
+    <Compile Include="ConstsAndEnums\SparePartsTypesConsts.cs" />
+    <Compile Include="DBManager.cs" />
+    <Compile Include="APIs\GoogleAPIHandler.cs" />
+    <Compile Include="APIs\GoogleSheetsConfig.cs" />
+    <Compile Include="HelperClassTemp.cs" />
+    <Compile Include="ConstsAndEnums\RunningCosts.cs" />
+    <Compile Include="Reparaturen\ReparaturenEditSparePartQuickAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reparaturen\ReparaturenEditSparePartQuickAdd.Designer.cs">
+      <DependentUpon>ReparaturenEditSparePartQuickAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reparaturen\RepEditQuickActions.cs" />
+    <Compile Include="Reparaturen\RepEditCounterOfferInputReason.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reparaturen\RepEditCounterOfferInputReason.Designer.cs">
+      <DependentUpon>RepEditCounterOfferInputReason.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reparaturen\RepEditQuickActionsSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reparaturen\RepEditQuickActionsSelection.Designer.cs">
+      <DependentUpon>RepEditQuickActionsSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConstsAndEnums\ReparaturenConsts.cs" />
+    <Compile Include="Reparaturen\ReparturenEditSparePartsDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reparaturen\ReparturenEditSparePartsDetails.Designer.cs">
+      <DependentUpon>ReparturenEditSparePartsDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConstsAndEnums\ProductModelCatalog.cs" />
+    <Compile Include="Reparaturen\ReparaturenCreateImeiInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reparaturen\ReparaturenCreateImeiInput.Designer.cs">
+      <DependentUpon>ReparaturenCreateImeiInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="APIs\BillBeeAPIHandler.cs" />
+    <Compile Include="Eigenbelege\EigenbelegBuyBackPriceCalculation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Eigenbelege\EigenbelegBuyBackPriceCalculation.Designer.cs">
+      <DependentUpon>EigenbelegBuyBackPriceCalculation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Eigenbelege\EigenbelegCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Eigenbelege\EigenbelegCreate.Designer.cs">
+      <DependentUpon>EigenbelegCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Eigenbelege\EigenbelegCreateInputBuyBack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Eigenbelege\EigenbelegCreateInputBuyBack.Designer.cs">
+      <DependentUpon>EigenbelegCreateInputBuyBack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Eigenbelege\Eigenbelege.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Eigenbelege\Eigenbelege.Designer.cs">
+      <DependentUpon>Eigenbelege.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Eigenbelege\EigenbelegEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Eigenbelege\EigenbelegEdit.Designer.cs">
+      <DependentUpon>EigenbelegEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Eigenbelege\EigenbelegeLabelSellOffInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Eigenbelege\EigenbelegeLabelSellOffInput.Designer.cs">
+      <DependentUpon>EigenbelegeLabelSellOffInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Eigenbelege\EigenbelegePayPalImport.cs" />
+    <Compile Include="Eigenbelege\EigenbelegFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Eigenbelege\EigenbelegFilter.Designer.cs">
+      <DependentUpon>EigenbelegFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExcelManager.cs" />
+    <Compile Include="APIs\GoogleDrive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="APIs\GoogleDrive.Designer.cs">
+      <DependentUpon>GoogleDrive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="APIs\PayPalAPIHandler.cs" />
+    <Compile Include="Eigenbelege\pdfDocument.cs" />
+    <Compile Include="Eigenbelege\pdfDocumentStorno.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reparaturen\ReparaturCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reparaturen\ReparaturCreate.Designer.cs">
+      <DependentUpon>ReparaturCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reparaturen\Reparaturen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reparaturen\Reparaturen.Designer.cs">
+      <DependentUpon>Reparaturen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reparaturen\ReparaturenEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reparaturen\ReparaturenEdit.Designer.cs">
+      <DependentUpon>ReparaturenEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reparaturen\ReparaturenFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reparaturen\ReparaturenFilter.Designer.cs">
+      <DependentUpon>ReparaturenFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchAlgorithm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchAlgorithm.Designer.cs">
+      <DependentUpon>SearchAlgorithm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SKUGeneration.cs" />
+    <Compile Include="Workflow\UIWorkflowShippingProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Workflow\UIWorkflowShippingProcess.Designer.cs">
+      <DependentUpon>UIWorkflowShippingProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\WorkflowShippingProcess.cs" />
+    <Compile Include="Workflow\WorkflowArrivalOfGoods.cs" />
+    <Compile Include="TextOperations.cs" />
+    <Compile Include="Reparaturen\WorkWithSpecificRep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reparaturen\WorkWithSpecificRep.Designer.cs">
+      <DependentUpon>WorkWithSpecificRep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserFileManagement.cs" />
+    <Compile Include="Workflow\WorkflowMainLabelPrintInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Workflow\WorkflowMainLabelPrintInput.Designer.cs">
+      <DependentUpon>WorkflowMainLabelPrintInput.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Reparaturen\ReparaturenEditSparePartQuickAdd.resx">
+      <DependentUpon>ReparaturenEditSparePartQuickAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reparaturen\ReparturenEditSparePartsDetails.resx">
+      <DependentUpon>ReparturenEditSparePartsDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reparaturen\RepEditCounterOfferInputReason.resx">
+      <DependentUpon>RepEditCounterOfferInputReason.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reparaturen\RepEditQuickActionsSelection.resx">
+      <DependentUpon>RepEditQuickActionsSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reparaturen\ReparaturenCreateImeiInput.resx">
+      <DependentUpon>ReparaturenCreateImeiInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Eigenbelege\EigenbelegBuyBackPriceCalculation.resx">
+      <DependentUpon>EigenbelegBuyBackPriceCalculation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Eigenbelege\EigenbelegCreate.resx">
+      <DependentUpon>EigenbelegCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Eigenbelege\EigenbelegCreateInputBuyBack.resx">
+      <DependentUpon>EigenbelegCreateInputBuyBack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Eigenbelege\Eigenbelege.resx">
+      <DependentUpon>Eigenbelege.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Eigenbelege\EigenbelegEdit.resx">
+      <DependentUpon>EigenbelegEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Eigenbelege\EigenbelegeLabelSellOffInput.resx">
+      <DependentUpon>EigenbelegeLabelSellOffInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Eigenbelege\EigenbelegFilter.resx">
+      <DependentUpon>EigenbelegFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APIs\GoogleDrive.resx">
+      <DependentUpon>GoogleDrive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reparaturen\ReparaturCreate.resx">
+      <DependentUpon>ReparaturCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reparaturen\Reparaturen.resx">
+      <DependentUpon>Reparaturen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reparaturen\ReparaturenEdit.resx">
+      <DependentUpon>ReparaturenEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reparaturen\ReparaturenFilter.resx">
+      <DependentUpon>ReparaturenFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reparaturen\WorkWithSpecificRep.resx">
+      <DependentUpon>WorkWithSpecificRep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchAlgorithm.resx">
+      <DependentUpon>SearchAlgorithm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Workflow\UIWorkflowShippingProcess.resx">
+      <DependentUpon>UIWorkflowShippingProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Workflow\WorkflowMainLabelPrintInput.resx">
+      <DependentUpon>WorkflowMainLabelPrintInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App1.config" />
+    <None Include="credentials.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\credentials.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <None Include="Resources\evaluations.webp" />
+    <None Include="Resources\Unterschrift.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Interop.bpac.dll" />
+    <Content Include="leno-favicon.ico" />
+    <Content Include="user.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\back.png" />
+    <None Include="Resources\Leno E-commerce _flat_MT_05 %282%29 - Kopie.jpg" />
+    <None Include="Resources\evaluations.png" />
+    <None Include="Resources\windowsvg.png" />
+    <None Include="Resources\evaluations.jpg" />
+    <None Include="Resources\window.png" />
+    <None Include="Resources\suche.png" />
+    <None Include="Resources\print.png" />
+    <None Include="Resources\107799.png" />
+    <None Include="Resources\office-gfeb180cfc_1280.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\Shared.csproj">
+      <Project>{24e596a4-3a31-4ca5-a163-5bf1871f7963}</Project>
+      <Name>Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
