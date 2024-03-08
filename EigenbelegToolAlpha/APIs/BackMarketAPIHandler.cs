@@ -28,7 +28,7 @@ namespace EigenbelegToolAlpha
 {
     public class BackMarketAPIHandler
     {
-        public static string apiKey = "ZjViMjRiNmEyYWJiM2ViYWViY2FhYzpCTVQtOTdlZDEyMjAzOWZhMTQ3MzZlMTEzMzZhZTAyNTllNjg2MzNmNjlkMQ==";
+        public static string apiKey = "ZDE1NmE3ZDE5YjMwYzQzYjJkMDA5ZDpCTVQtNmJkOTZhODQwMTJmZjliY2Y4MTg2Y2IzZWRlMTk4YmRhMjkzZjMyNA==";
         public static string userAgent = "I-Tec-Shop";
         // this is a test 
         public static Dictionary<string, string> conditionsEqualization = new Dictionary<string, string>
