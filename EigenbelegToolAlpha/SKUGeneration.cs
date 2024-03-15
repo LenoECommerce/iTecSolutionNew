@@ -66,9 +66,10 @@ namespace EigenbelegToolAlpha
 
         Dictionary<string, string> conditionsDictionary = new Dictionary<string, string>
         {
-            { "Wie Neu", "A" },
-            { "Sehr Gut", "B" },
-            { "Gut", "C" },
+            { "A Neuwertig", "A" },
+            { "B Minimale Gebrauchsspuren", "B" },
+            { "C Gebraucht", "C" },
+            { "D Optisch Defekt", "D" },
         };
 
         Dictionary<string, string> taxTypeDictionary = new Dictionary<string, string>
