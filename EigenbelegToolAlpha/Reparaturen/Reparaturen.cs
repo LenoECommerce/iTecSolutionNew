@@ -282,36 +282,32 @@ namespace EigenbelegToolAlpha
                     var result = form.ShowDialog();
                     if (result == DialogResult.OK)
                     {
-                        // THIS IS JUST FOR NO PRINTER CASE
-                        Eigenbelege eigenbelege = new Eigenbelege();
-                        eigenbelege.Show();
-                        eigenbelege.btn_workflowArrivalOfGoods_Click(null, null);
 
-                        //using (var labelPrintInput = new WorkflowMainLabelPrintInput())
-                        //{
-                        //    labelPrintInput.btn_1.Click += (EventHandler)((sender3, e3) =>
-                        //    {
-                        //        labelPrintInput.DialogResult = DialogResult.OK;
-                        //        labelPrintInput.Close();
-                        //    });
-                        //    labelPrintInput.btn_2.Click += (EventHandler)((sender3, e3) =>
-                        //    {
-                        //        labelPrintInput.DialogResult = DialogResult.OK;
-                        //        labelPrintInput.Close();
-                        //    });
+                        using (var labelPrintInput = new WorkflowMainLabelPrintInput())
+                        {
+                            labelPrintInput.btn_1.Click += (EventHandler)((sender3, e3) =>
+                            {
+                                labelPrintInput.DialogResult = DialogResult.OK;
+                                labelPrintInput.Close();
+                            });
+                            labelPrintInput.btn_2.Click += (EventHandler)((sender3, e3) =>
+                            {
+                                labelPrintInput.DialogResult = DialogResult.OK;
+                                labelPrintInput.Close();
+                            });
 
-                        //    labelPrintInput.ShowDialog();
+                            labelPrintInput.ShowDialog();
 
-                        //    if (labelPrintInput.DialogResult == DialogResult.OK)
-                        //    {
-                        //        HelpMethodSelectCurrentEntry(rowIndex);
-                        //        BrotherPrintThisModell(WorkflowMainLabelPrintInput.amountLabels, 0);
-                        //        this.Hide();
-                        //        Eigenbelege eigenbelege = new Eigenbelege();
-                        //        eigenbelege.Show();
-                        //        eigenbelege.btn_workflowArrivalOfGoods_Click(null, null);
-                        //    }
-                        //}
+                            if (labelPrintInput.DialogResult == DialogResult.OK)
+                            {
+                                HelpMethodSelectCurrentEntry(rowIndex);
+                                BrotherPrintThisModell(WorkflowMainLabelPrintInput.amountLabels, 0);
+                                this.Hide();
+                                Eigenbelege eigenbelege = new Eigenbelege();
+                                eigenbelege.Show();
+                                eigenbelege.btn_workflowArrivalOfGoods_Click(null, null);
+                            }
+                        }
                     }
                 }
             };

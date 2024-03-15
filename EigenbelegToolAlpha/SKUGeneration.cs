@@ -114,7 +114,7 @@ namespace EigenbelegToolAlpha
             try
             {
                 category = "APL/";
-
+                modell = modelleDictionaryApple[valueModell];
                 color = colorsDictionary[valueColor];
                 storage = storageDictionary[valueStorage];
                 condition = conditionsDictionary[valueCondition];
