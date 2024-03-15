@@ -607,7 +607,9 @@
     <None Include="Resources\Unterschrift.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Interop.bpac.dll" />
+    <Content Include="Interop.bpac.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="leno-favicon.ico" />
     <Content Include="user.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
