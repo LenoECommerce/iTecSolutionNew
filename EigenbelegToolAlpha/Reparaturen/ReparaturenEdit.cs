@@ -104,13 +104,13 @@ namespace EigenbelegToolAlpha
 
         private void ReparaturenEdit_Load(object sender, EventArgs e)
         {
-            comboBox_ReparaturEditTaxes.Text = "Differenzbesteuerung";
             LoadBatteryCapacityCombobox();
             LoadModelCombobox();
             CheckIfStorageIsHigh(Reparaturen.storage);
             SetFrontEndValues();
             LoadDefectListBox();
             textBox_ReparaturenInternalNumber.ReadOnly = !Reparaturen.IsEntryCreated;
+            comboBox_ReparaturEditTaxes.Text = "Differenzbesteuerung";
         }
        
 

@@ -109,28 +109,15 @@ namespace EigenbelegToolAlpha
         };
 
 
-        public string SKUGenerationMethod(string valueMake, string valueModell, string valueColor, string valueCondition, string valueTax, string valueStorage, string valueFiveG, int valueBattery)
+        public string SKUGenerationMethod(string valueMake, string valueModell, string valueColor, string valueCondition, string valueStorage, string valueFiveG, int valueBattery)
         {
             try
             {
-                if (valueMake == "Apple")
-                {
-                    modell = modelleDictionaryApple[valueModell];
-                    category = "APL/";
-                }
-                else if (valueMake == "Samsung")
-                {
-                    modell = modelleDictionarySamsung[valueModell];
-                    category = "SAM/";
-                    if (valueFiveG == "Ja")
-                    {
-                        fiveG = "/5G/";
-                    }
-                }
+                category = "APL/";
+
                 color = colorsDictionary[valueColor];
                 storage = storageDictionary[valueStorage];
                 condition = conditionsDictionary[valueCondition];
-                tax = taxTypeDictionary[valueTax];
                 battery100 = Check100Battery(valueBattery);
             }
             catch (Exception ex)
@@ -138,7 +125,7 @@ namespace EigenbelegToolAlpha
                 MessageBox.Show(ex.Message);
             }
 
-            finalText = category + modell + fiveG + color + storage + condition + battery100 + "/" + tax;
+            finalText = category + modell + fiveG + color + storage + condition + battery100;
             return finalText;
         }
         public string Check100Battery(int checkValue)

@@ -16,7 +16,7 @@ namespace EigenbelegToolAlpha
 
         private void btn_Executre_Click(object sender, EventArgs e)
         {
-            internFiltered = HelperClassTemp.ReturnInternalNumberFromBarcode(inputValue);
+            internFiltered = Convert.ToInt32(inputValue);
             DialogResult = DialogResult.OK;
             this.Close();
         }

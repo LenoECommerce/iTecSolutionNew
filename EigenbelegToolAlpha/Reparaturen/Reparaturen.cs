@@ -532,7 +532,7 @@ namespace EigenbelegToolAlpha
 
                 //SKU Generator in andere Klasse auslagern!
                 SKUGeneration newObject = new SKUGeneration();
-                barcodeSKU = newObject.SKUGenerationMethod(make, device, color, condition, taxes, storage, fiveG, valueBattery);
+                barcodeSKU = newObject.SKUGenerationMethod(make, device, color, condition, storage, fiveG, valueBattery);
 
                 string title = $"{device} {storage}";
 
