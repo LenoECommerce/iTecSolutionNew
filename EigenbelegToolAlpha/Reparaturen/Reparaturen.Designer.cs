@@ -46,6 +46,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btn_WorkWithSpecificReparatur = new System.Windows.Forms.Button();
             this.openFD = new System.Windows.Forms.OpenFileDialog();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.reparaturenDGV)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -178,14 +179,14 @@
             // hauptetikettToolStripMenuItem
             // 
             this.hauptetikettToolStripMenuItem.Name = "hauptetikettToolStripMenuItem";
-            this.hauptetikettToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hauptetikettToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.hauptetikettToolStripMenuItem.Text = "Hauptetikett";
             this.hauptetikettToolStripMenuItem.Click += new System.EventHandler(this.hauptetikettToolStripMenuItem_Click);
             // 
             // xHauptetikettToolStripMenuItem
             // 
             this.xHauptetikettToolStripMenuItem.Name = "xHauptetikettToolStripMenuItem";
-            this.xHauptetikettToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xHauptetikettToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.xHauptetikettToolStripMenuItem.Text = "2x Hauptetikett";
             this.xHauptetikettToolStripMenuItem.Click += new System.EventHandler(this.xHauptetikettToolStripMenuItem_Click);
             // 
@@ -239,12 +240,26 @@
             // 
             this.openFD.FileName = "openFileDialog1";
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(1109, 120);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(98, 26);
+            this.button2.TabIndex = 46;
+            this.button2.Text = "Einstellungen";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Reparaturen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1264, 814);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btn_WorkWithSpecificReparatur);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -289,5 +304,6 @@
         private System.Windows.Forms.ToolStripMenuItem eigenbelegeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xHauptetikettToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sucheToolStripMenuItem;
+        private System.Windows.Forms.Button button2;
     }
 }

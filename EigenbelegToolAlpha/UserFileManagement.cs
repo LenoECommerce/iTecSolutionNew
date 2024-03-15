@@ -12,7 +12,7 @@ namespace EigenbelegToolAlpha
     public class UserFileManagement
     {
         public static string fileName = "user.txt";
-        public static string currentUser { get; set; }
+        public static string currentUser = "I-Tec";
 
         public static string ReturnCurrentUser()
         {

@@ -653,6 +653,10 @@ namespace EigenbelegToolAlpha
             }
         }
 
-       
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Settings win = new Settings();
+            win.Show();
+        }
     }
 }

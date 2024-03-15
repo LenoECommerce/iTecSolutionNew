@@ -518,42 +518,37 @@ namespace EigenbelegToolAlpha
 
             try
             {
-                string internPrefix = "";
-                string barcodeSKU = "APL/10.1/B64C/DIFF";
+                string barcodeSKU = "";
                 string path = "";
                 try
                 {
                     var dbManager = new DBManager();
-                    //path = dbManager.ExecuteQueryWithResultString("ConfigUser", "TemplateModell", "Nutzer", Settings.currentUser);
+                    path = dbManager.ExecuteQueryWithResultString("ConfigUser", "TemplateModell", "Nutzer", UserFileManagement.currentUser);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Bitte setze in den Einstellungen dein Template fest; Fehlermeldung:" + ex.Message);
                 }
 
-                //Abfrage wie lang interne Nummer, dann prefix anpassen!
-                int lengthIntern = internalNumber.Length;
-                int freeDigits = 5 - lengthIntern;
-                for (int i = 0; i < freeDigits; i++)
-                {
-                    internPrefix = internPrefix + "0";
-                }
-
                 //SKU Generator in andere Klasse auslagern!
                 SKUGeneration newObject = new SKUGeneration();
                 barcodeSKU = newObject.SKUGenerationMethod(make, device, color, condition, taxes, storage, fiveG, valueBattery);
 
-                string barcodeIMEICombo = internPrefix + internalNumber + "/" + imei;
-
+                string title = $"{device} {storage}";
 
                 bpac.Document doc = new bpac.Document();
                 doc.Open(path);
                 doc.SetPrinter("Brother QL-600", true);
 
-                var temp = doc.GetBarcodeIndex("SKU");
-                var temp2 = doc.GetBarcodeIndex("IMEICombo");
-                doc.SetBarcodeData(temp, barcodeSKU);
-                doc.SetBarcodeData(temp2, barcodeIMEICombo);
+                // set values
+                var indexSKU = doc.GetBarcodeIndex("barcodeSKU");
+                var indexIMEI = doc.GetBarcodeIndex("barcodeIMEI");
+                var indexIntern = doc.GetBarcodeIndex("barcodeIntern");
+
+                doc.SetBarcodeData(indexSKU, barcodeSKU);
+                doc.SetBarcodeData(indexIMEI, imei);
+                doc.SetBarcodeData(indexIntern, internalNumber);
+                doc.GetObject("title").Text = title;
 
                 doc.StartPrint("", bpac.PrintOptionConstants.bpoDefault);
                 doc.PrintOut(quantityOfCopies, bpac.PrintOptionConstants.bpoDefault);
@@ -724,5 +719,10 @@ namespace EigenbelegToolAlpha
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Settings window = new Settings();
+            window.Show();
+        }
     }
 }

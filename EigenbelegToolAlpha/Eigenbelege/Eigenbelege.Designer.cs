@@ -49,6 +49,7 @@
             this.btn_workflowArrivalOfGoods = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.mySqlDataAdapter1 = new MySql.Data.MySqlClient.MySqlDataAdapter();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.eigenbelegeDGV)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -268,12 +269,26 @@
             this.mySqlDataAdapter1.SelectCommand = null;
             this.mySqlDataAdapter1.UpdateCommand = null;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(1080, 112);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(134, 26);
+            this.button2.TabIndex = 58;
+            this.button2.Text = "Einstellungen";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Eigenbelege
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1270, 836);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btn_workflowArrivalOfGoods);
             this.Controls.Add(this.menuStrip1);
@@ -324,6 +339,7 @@
         public System.Windows.Forms.Button btn_workflowArrivalOfGoods;
         private System.Windows.Forms.Label label4;
         private MySql.Data.MySqlClient.MySqlDataAdapter mySqlDataAdapter1;
+        private System.Windows.Forms.Button button2;
     }
 }
 
