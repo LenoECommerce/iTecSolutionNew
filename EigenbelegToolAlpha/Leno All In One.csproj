@@ -14,7 +14,7 @@
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>C:\Users\lenna\Desktop\double desktop\coding stuff\new itec solution\iTecSolutionNew\published\</PublishUrl>
+    <PublishUrl>C:\Users\lenna\Desktop\iTecSolution\iTecSolutionNew\published\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -28,7 +28,7 @@
     <UpdateUrl>https://raw.githubusercontent.com/LenoECommerce/iTecSolutionNew/main/published/</UpdateUrl>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>103</ApplicationRevision>
+    <ApplicationRevision>104</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -344,6 +344,48 @@
     <Compile Include="APIs\GoogleSheetsConfig.cs" />
     <Compile Include="HelperClassTemp.cs" />
     <Compile Include="ConstsAndEnums\RunningCosts.cs" />
+    <Compile Include="Protokollierung\MultipleOrderlinesOrderIDInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Protokollierung\MultipleOrderlinesOrderIDInput.Designer.cs">
+      <DependentUpon>MultipleOrderlinesOrderIDInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Protokollierung\MultipleOrderlinesSelectMatchingSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Protokollierung\MultipleOrderlinesSelectMatchingSale.Designer.cs">
+      <DependentUpon>MultipleOrderlinesSelectMatchingSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Protokollierung\Protokollierung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Protokollierung\Protokollierung.Designer.cs">
+      <DependentUpon>Protokollierung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Protokollierung\ProtokollierungAddExternalSell.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Protokollierung\ProtokollierungAddExternalSell.Designer.cs">
+      <DependentUpon>ProtokollierungAddExternalSell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Protokollierung\ProtokollierungBulkEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Protokollierung\ProtokollierungBulkEditor.Designer.cs">
+      <DependentUpon>ProtokollierungBulkEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Protokollierung\ProtokollierungInputForAssigningMonth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Protokollierung\ProtokollierungInputForAssigningMonth.Designer.cs">
+      <DependentUpon>ProtokollierungInputForAssigningMonth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Protokollierung\ProtokollierungScan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Protokollierung\ProtokollierungScan.Designer.cs">
+      <DependentUpon>ProtokollierungScan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reparaturen\ReparaturenEditSparePartQuickAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -492,6 +534,27 @@
     <Compile Include="Workflow\WorkflowMainLabelPrintInput.Designer.cs">
       <DependentUpon>WorkflowMainLabelPrintInput.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Protokollierung\MultipleOrderlinesOrderIDInput.resx">
+      <DependentUpon>MultipleOrderlinesOrderIDInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Protokollierung\MultipleOrderlinesSelectMatchingSale.resx">
+      <DependentUpon>MultipleOrderlinesSelectMatchingSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Protokollierung\Protokollierung.resx">
+      <DependentUpon>Protokollierung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Protokollierung\ProtokollierungAddExternalSell.resx">
+      <DependentUpon>ProtokollierungAddExternalSell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Protokollierung\ProtokollierungBulkEditor.resx">
+      <DependentUpon>ProtokollierungBulkEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Protokollierung\ProtokollierungInputForAssigningMonth.resx">
+      <DependentUpon>ProtokollierungInputForAssigningMonth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Protokollierung\ProtokollierungScan.resx">
+      <DependentUpon>ProtokollierungScan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reparaturen\ReparaturenEditSparePartQuickAdd.resx">
       <DependentUpon>ReparaturenEditSparePartQuickAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -589,7 +652,7 @@
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 und x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">

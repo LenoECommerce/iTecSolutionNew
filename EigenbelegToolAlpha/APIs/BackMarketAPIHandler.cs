@@ -282,12 +282,22 @@ namespace EigenbelegToolAlpha
             string value = (string)json[fieldName];
             return value;
         }
-        public static string GetFieldBuyBackOrder1LayerArray(string orderId, string layerName, string fieldName)
+
+        public static string GetSpecificFieldOfOrder1Layer(string orderId, string layer, string fieldName)
         {
-            string url = "https://www.backmarket.fr/ws/buyback/v1/orders/" + orderId;
+            string url = "https://www.backmarket.fr/ws/orders/" + orderId;
             string response = GetRequest(url);
             JObject json = JObject.Parse(response);
-            JArray results = (JArray)json["suspendReasons"];
+            string value = (string)json[layer][fieldName];
+            return value;
+        }
+
+        public static string GetFieldOrder1LayerArray(string orderId, string layerName, string fieldName)
+        {
+            string url = "https://www.backmarket.fr/ws/orders/" + orderId;
+            string response = GetRequest(url);
+            JObject json = JObject.Parse(response);
+            JArray results = (JArray)json[layerName];
             string value = (string)results[0][fieldName];
             return value;
         }

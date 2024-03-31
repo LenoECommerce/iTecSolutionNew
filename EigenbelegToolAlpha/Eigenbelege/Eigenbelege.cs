@@ -658,5 +658,12 @@ namespace EigenbelegToolAlpha
             Settings win = new Settings();
             win.Show();
         }
+
+        private void warenausgangToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Protokollierung prot = new Protokollierung();
+            prot.Show();
+            this.Close();
+        }
     }
 }

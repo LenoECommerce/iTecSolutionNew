@@ -101,9 +101,33 @@ namespace EigenbelegToolAlpha
             this.Close();
         }
 
+        private void LoadCustomerNameAndTransactionAmount()
+        {
+            DBManager dBManager = new DBManager();
+            string orderId = dBManager.ExecuteQueryWithResultString("Protokollierung","Bestellnummer","IMEI",Reparaturen.imei);
+            string customerValue = "Nicht verfügbar.";
+            string transactionAmountValue = "Nicht verfügbar.";
+
+            if (Convert.ToInt32(orderId) != 0)
+            {
+                string firstName = BackMarketAPIHandler.GetSpecificFieldOfOrder1Layer(orderId, "shipping_address", "first_name");
+                string lastName = BackMarketAPIHandler.GetSpecificFieldOfOrder1Layer(orderId, "shipping_address", "last_name");
+
+                customerValue = $"{firstName} {lastName}";
+                transactionAmountValue = BackMarketAPIHandler.GetFieldOrder1LayerArray(orderId, "orderlines", "price");
+            }
+
+            textBox_reparaturenTransactionAmount.Text = $"{transactionAmountValue}€";
+            textBox_customer.Text = customerValue;
+
+            // deny editing the values
+            textBox_customer.ReadOnly = true;
+            textBox_reparaturenTransactionAmount.ReadOnly = true;
+        }
 
         private void ReparaturenEdit_Load(object sender, EventArgs e)
         {
+            LoadCustomerNameAndTransactionAmount();
             LoadBatteryCapacityCombobox();
             LoadModelCombobox();
             CheckIfStorageIsHigh(Reparaturen.storage);
