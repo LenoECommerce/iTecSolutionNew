@@ -28,7 +28,7 @@
     <UpdateUrl>https://raw.githubusercontent.com/LenoECommerce/iTecSolutionNew/main/published/</UpdateUrl>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>104</ApplicationRevision>
+    <ApplicationRevision>105</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -342,7 +342,6 @@
     <Compile Include="DBManager.cs" />
     <Compile Include="APIs\GoogleAPIHandler.cs" />
     <Compile Include="APIs\GoogleSheetsConfig.cs" />
-    <Compile Include="EvaluationsCalculationLogic.cs" />
     <Compile Include="Evaluations\EvaluationNewApproach.cs" />
     <Compile Include="Evaluations\EvaluationsTempDataStorage.cs" />
     <Compile Include="HelperClassTemp.cs" />
@@ -502,6 +501,7 @@
     <Compile Include="Reparaturen\ReparaturenFilter.Designer.cs">
       <DependentUpon>ReparaturenFilter.cs</DependentUpon>
     </Compile>
+    <Compile Include="Evaluations\SalesDataAnalyticsXSL.cs" />
     <Compile Include="SearchAlgorithm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -515,6 +515,7 @@
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
     <Compile Include="SKUGeneration.cs" />
+    <Compile Include="SyncAllOrders.cs" />
     <Compile Include="Workflow\UIWorkflowShippingProcess.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -655,7 +656,7 @@
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.8 %28x86 und x64%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">

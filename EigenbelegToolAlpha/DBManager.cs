@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -20,7 +21,31 @@ namespace EigenbelegToolAlpha
         {
             backupCounter = ExecuteQueryWithResult("Config", "Nummer", "Typ", "BackUpsToday");
         }
+        public string[] GetValuesFromOneAttribute(string attribute, string table)
+        {
+            List<string> values = new List<string>();
 
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                connection.Open();
+
+                string query = $"SELECT `{attribute}` FROM `{table}`";
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string value = reader[attribute].ToString();
+                            values.Add(value);
+                        }
+                    }
+                }
+            }
+
+            return values.ToArray();
+        }
         public DataTable GetLastRepairs(string currentUser, 
                                         string currentDate,
                                         string table)

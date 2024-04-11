@@ -89,7 +89,7 @@ namespace EigenbelegToolAlpha
             JArray suspendReasons = (JArray)json["suspendReasons"];
             string suspendReasonIdentifier = (string)suspendReasons[0]["identifier"];
             var status = (string)json["status"];
-            if (status == "CANCELED"  &&
+            if (status == "CANCELED" &&
                 suspendReasonIdentifier == "customer_account_present")
             {
                 return true;
@@ -97,7 +97,7 @@ namespace EigenbelegToolAlpha
             return false;
         }
 
-        public static void SendMessageToBuyBackCustomer(string message, string[]files, string orderId)
+        public static void SendMessageToBuyBackCustomer(string message, string[] files, string orderId)
         {
             try
             {
@@ -337,7 +337,7 @@ namespace EigenbelegToolAlpha
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Es gab einen Fehler im After Sales Push zu BackMarket für folgende Order: "+orderId+ "\r\n\r\nFehlercode: " + ex.Message);
+                    MessageBox.Show("Es gab einen Fehler im After Sales Push zu BackMarket für folgende Order: " + orderId + "\r\n\r\nFehlercode: " + ex.Message);
                 }
             }
         }
@@ -362,7 +362,7 @@ namespace EigenbelegToolAlpha
                 }
             }
         }
-    
+
 
         public void UpdateOrderRequest(string orderId, string trackingNumber, string imei)
         {
@@ -407,8 +407,40 @@ namespace EigenbelegToolAlpha
             }
         }
 
+        public string[] GetAllOrderIdsFromSells()
+        {
+            string apiUrl = "https://www.backmarket.fr/ws/orders";
+            List<string> orderIds = new List<string>();
 
-       
+            bool hasNextPage = true;
+            int page = 1;
+
+            while (hasNextPage)
+            {
+                // API-Anfrage durchführen
+                string responseString = GetRequest($"{apiUrl}?page={page}");
+
+                JObject responseObject = JObject.Parse(responseString);
+
+                JArray orders = (JArray)responseObject["results"];
+
+                foreach (JToken order in orders)
+                {
+                    string orderId = order["order_id"].ToString();
+                    orderIds.Add(orderId);
+                }
+
+                string nextPage = responseObject["next"].ToString();
+                if (string.IsNullOrEmpty(nextPage))
+                {
+                    hasNextPage = false;
+                }
+                page++;
+            }
+
+            return orderIds.ToArray();
+        }
+
         public string[] PullBuyBackDataFromOrderID(string inputShippingNumber)
         {
             string[] feedback = new string[8];
@@ -430,7 +462,7 @@ namespace EigenbelegToolAlpha
                 return feedback;
             }
         }
-        
+
         public void BuyBackControllingOurCompany()
         {
             DateTime lastMonday = StartOfWeek(DateTime.Now, DayOfWeek.Monday);

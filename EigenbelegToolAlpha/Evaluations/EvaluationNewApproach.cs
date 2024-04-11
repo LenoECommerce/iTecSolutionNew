@@ -6,14 +6,16 @@ using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace EigenbelegToolAlpha
 {
     public class EvaluationNewApproach
     {
         public string orderId { get; set; }
+        public string imei { get; set; }
         public string internalNumber { get; set; }
-        public string amount{ get; set; }
+        public string amount { get; set; }
         public string externalCosts { get; set; }
         public string taxesType { get; set; }
         public string model { get; set; }
@@ -26,44 +28,78 @@ namespace EigenbelegToolAlpha
 
 
 
-        public EvaluationNewApproach(
-            string _orderId,
-            string _internalNumber,
-            string _amount,
-            string _externalCosts,
-            string _taxesType,
-            string _model,
-            string _purchaseGrade)
+        public EvaluationNewApproach()
         {
-            orderId = _orderId;
-            internalNumber = _internalNumber;
-            amount = _amount;
-            externalCosts = _externalCosts;
-            taxesType = _taxesType;
-            model = _model;
-            purchaseGrade = _purchaseGrade;
+
         }
 
         public void Main()
         {
-            string[] orderIds = { };
-
+            string[] orderIds = CollectAllOrderIds();
 
             foreach (var item in orderIds)
             {
+                orderId = item;
+                CollectRelevantData();
+
+                // sometimes no imei, maybe canceled
+                if (string.IsNullOrEmpty(item))
+                {
+                    continue;
+                }
+
                 CalculateEverything();
-                EvaluationsTempDataStorage.model = AddToArray(model, EvaluationsTempDataStorage.model);
-                EvaluationsTempDataStorage.purchaseGrades = AddToArray(purchaseGrade, EvaluationsTempDataStorage.purchaseGrades);
-                EvaluationsTempDataStorage.orderIDs = AddToArray(orderId, EvaluationsTempDataStorage.orderIDs);
-                EvaluationsTempDataStorage.internalNumbers = AddToArray(internalNumber, EvaluationsTempDataStorage.internalNumbers);
-                EvaluationsTempDataStorage.amounts = AddToArray(amount, EvaluationsTempDataStorage.amounts);
-                EvaluationsTempDataStorage.externalCostsArray = AddToArray(externalCosts, EvaluationsTempDataStorage.externalCostsArray);
-                EvaluationsTempDataStorage.taxesTypes = AddToArray(taxesType, EvaluationsTempDataStorage.taxesTypes);
-                EvaluationsTempDataStorage.taxesArray = AddToArray(taxes, EvaluationsTempDataStorage.taxesArray);
-                EvaluationsTempDataStorage.marketPlaceFeesArray = AddToArray(marketPlaceFees, EvaluationsTempDataStorage.marketPlaceFeesArray);
-                EvaluationsTempDataStorage.profits = AddToArray(profit.ToString(), EvaluationsTempDataStorage.profits);
-                EvaluationsTempDataStorage.margins = AddToArray(margin.ToString(), EvaluationsTempDataStorage.margins);
+                StoreValuesToArrays();
             }
+
+            ExcelStuff(orderIds);
+            MessageBox.Show("Excel Datei erfolgreich erzeugt.");
+        }
+
+        private string[] CollectAllOrderIds()
+        {
+            DBManager db = new DBManager();
+            return db.GetValuesFromOneAttribute("Bestellnummer", "Protokollierung");
+        }
+
+        private void ExcelStuff(string[] orderIds)
+        {
+            SalesDataAnalyticsXSL xsl = new SalesDataAnalyticsXSL();
+            xsl.CreateXSLFile(
+                orderIds,
+                EvaluationsTempDataStorage.model,
+                EvaluationsTempDataStorage.purchaseGrades,
+                EvaluationsTempDataStorage.profits,
+                EvaluationsTempDataStorage.margins);
+        }
+
+        private void StoreValuesToArrays()
+        {
+            EvaluationsTempDataStorage.model = AddToArray(model, EvaluationsTempDataStorage.model);
+            EvaluationsTempDataStorage.purchaseGrades = AddToArray(purchaseGrade, EvaluationsTempDataStorage.purchaseGrades);
+            EvaluationsTempDataStorage.orderIDs = AddToArray(orderId, EvaluationsTempDataStorage.orderIDs);
+            EvaluationsTempDataStorage.internalNumbers = AddToArray(internalNumber, EvaluationsTempDataStorage.internalNumbers);
+            EvaluationsTempDataStorage.amounts = AddToArray(amount, EvaluationsTempDataStorage.amounts);
+            EvaluationsTempDataStorage.externalCostsArray = AddToArray(externalCosts, EvaluationsTempDataStorage.externalCostsArray);
+            EvaluationsTempDataStorage.taxesTypes = AddToArray(taxesType, EvaluationsTempDataStorage.taxesTypes);
+            EvaluationsTempDataStorage.taxesArray = AddToArray(taxes, EvaluationsTempDataStorage.taxesArray);
+            EvaluationsTempDataStorage.marketPlaceFeesArray = AddToArray(marketPlaceFees, EvaluationsTempDataStorage.marketPlaceFeesArray);
+            EvaluationsTempDataStorage.profits = AddToArray(profit.ToString(), EvaluationsTempDataStorage.profits);
+            EvaluationsTempDataStorage.margins = AddToArray(margin.ToString(), EvaluationsTempDataStorage.margins);
+        }
+
+        private void CollectRelevantData()
+        {
+            DBManager db = new DBManager();
+
+            imei = db.ExecuteQueryWithResultString("Protokollierung", "IMEI", "Bestellnummer", orderId);
+
+            internalNumber = db.ExecuteQueryWithResultString("Reparaturen", "Intern", "IMEI", imei);
+            model = db.ExecuteQueryWithResultString("Reparaturen", "Geraet", "Intern", internalNumber);
+            purchaseGrade = db.ExecuteQueryWithResultString("Reparaturen", "BuyBackGrade", "Intern", internalNumber);
+            amount = db.ExecuteQueryWithResultString("Reparaturen", "Kaufbetrag", "Intern", internalNumber);
+            externalCosts = db.ExecuteQueryWithResultString("Reparaturen", "ExterneKosten", "Intern", internalNumber);
+            taxesType = db.ExecuteQueryWithResultString("Reparaturen", "Besteuerung", "Intern", internalNumber);
         }
 
         private string[] AddToArray(string value, string[] array)
@@ -84,7 +120,7 @@ namespace EigenbelegToolAlpha
                 orderId);
 
             salesVolume = BackMarketAPIHandler.GetFieldOrder1LayerArray(orderId, "orderlines", "price");
-
+            AdaptSalesVolume();
             CollectAllMarketPlaceFees(marketplace);
 
             // calculate main core figures
@@ -100,7 +136,7 @@ namespace EigenbelegToolAlpha
             if (marketplace == "BackMarket")
             {
                 tempValue += GetShippingCosts();
-                tempValue += Convert.ToDouble(salesVolume) * 0.11;
+                tempValue += Convert.ToDouble(salesVolume) * 0.12;
                 tempValue += 5.99;
             }
 
@@ -135,17 +171,28 @@ namespace EigenbelegToolAlpha
 
         public double CalcProfit()
         {
-            double profit =  Convert.ToDouble(salesVolume) - 
+            // workaround because externalCosts can be empty RN -> no motivation :c
+            if (string.IsNullOrEmpty(externalCosts))
+            {
+                externalCosts = "0";
+            }
+
+            double profit = Convert.ToDouble(salesVolume) -
                              Convert.ToDouble(amount) -
-                             Convert.ToDouble(externalCosts) - 
+                             Convert.ToDouble(externalCosts) -
                              Convert.ToDouble(taxes) -
                              Convert.ToDouble(marketPlaceFees);
             return profit;
         }
 
+        public void AdaptSalesVolume()
+        {
+            salesVolume = salesVolume.Replace(".", ",");
+        }
+
         public double CalcMargin()
         {
-            double margin = Convert.ToDouble(profit) / Convert.ToDouble(salesVolume) * 100;
+            double margin = Convert.ToDouble(profit) / Convert.ToDouble(salesVolume);
             return margin;
         }
 

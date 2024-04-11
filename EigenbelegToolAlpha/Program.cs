@@ -23,10 +23,7 @@ namespace EigenbelegToolAlpha
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //string orderId = "39226586";
-            //string orderId2 = "39169190";
-            //string paymentMethod = BackMarketAPIHandler.GetSpecificFieldOfOrder(orderId, "payment_method");
-            //string test = BackMarketAPIHandler.GetFieldOrder1LayerArray(orderId, "orderlines","price");
+            SyncAllOrders.Main();
 
             Application.Run(new Reparaturen());
 
