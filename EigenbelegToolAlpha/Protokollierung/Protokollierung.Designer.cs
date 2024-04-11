@@ -49,7 +49,6 @@
             this.textBox_ScanDate = new System.Windows.Forms.TextBox();
             this.comboBox_Marketplace = new System.Windows.Forms.ComboBox();
             this.openFD = new System.Windows.Forms.OpenFileDialog();
-            this.btn_PushDataToAPIs = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.protokollierungDGV)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -283,26 +282,12 @@
             // 
             this.openFD.FileName = "openFileDialog1";
             // 
-            // btn_PushDataToAPIs
-            // 
-            this.btn_PushDataToAPIs.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn_PushDataToAPIs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_PushDataToAPIs.Location = new System.Drawing.Point(1581, 80);
-            this.btn_PushDataToAPIs.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btn_PushDataToAPIs.Name = "btn_PushDataToAPIs";
-            this.btn_PushDataToAPIs.Size = new System.Drawing.Size(267, 45);
-            this.btn_PushDataToAPIs.TabIndex = 70;
-            this.btn_PushDataToAPIs.Text = "Push Data to APIs";
-            this.btn_PushDataToAPIs.UseVisualStyleBackColor = false;
-            this.btn_PushDataToAPIs.Click += new System.EventHandler(this.btn_PushDataToAPIs_Click);
-            // 
             // Protokollierung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1896, 1050);
-            this.Controls.Add(this.btn_PushDataToAPIs);
             this.Controls.Add(this.comboBox_Marketplace);
             this.Controls.Add(this.textBox_ScanDate);
             this.Controls.Add(this.textBox_IMEI);
@@ -356,6 +341,5 @@
         private System.Windows.Forms.ComboBox comboBox_Marketplace;
         private System.Windows.Forms.OpenFileDialog openFD;
         private System.Windows.Forms.ToolStripMenuItem sucheToolStripMenuItem;
-        private System.Windows.Forms.Button btn_PushDataToAPIs;
     }
 }

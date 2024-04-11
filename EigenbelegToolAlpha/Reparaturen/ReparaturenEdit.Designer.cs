@@ -72,6 +72,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox_customer = new System.Windows.Forms.TextBox();
             this.textBox_transactionAmount = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox_sparePartCosts = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -245,7 +247,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(990, 758);
+            this.button1.Location = new System.Drawing.Point(990, 779);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(278, 65);
@@ -280,7 +282,7 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Arial Narrow", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label21.Location = new System.Drawing.Point(15, 477);
+            this.label21.Location = new System.Drawing.Point(13, 450);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(224, 42);
@@ -373,7 +375,7 @@
             // 
             // btn_nsysFillOut
             // 
-            this.btn_nsysFillOut.Location = new System.Drawing.Point(34, 782);
+            this.btn_nsysFillOut.Location = new System.Drawing.Point(22, 808);
             this.btn_nsysFillOut.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_nsysFillOut.Name = "btn_nsysFillOut";
             this.btn_nsysFillOut.Size = new System.Drawing.Size(165, 45);
@@ -384,7 +386,7 @@
             // 
             // btn_IMEICheck
             // 
-            this.btn_IMEICheck.Location = new System.Drawing.Point(270, 785);
+            this.btn_IMEICheck.Location = new System.Drawing.Point(258, 811);
             this.btn_IMEICheck.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_IMEICheck.Name = "btn_IMEICheck";
             this.btn_IMEICheck.Size = new System.Drawing.Size(165, 42);
@@ -432,7 +434,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial Narrow", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label13.Location = new System.Drawing.Point(30, 732);
+            this.label13.Location = new System.Drawing.Point(18, 758);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(129, 42);
@@ -441,7 +443,7 @@
             // 
             // textbox_commentRefurbisher
             // 
-            this.textbox_commentRefurbisher.Location = new System.Drawing.Point(24, 575);
+            this.textbox_commentRefurbisher.Location = new System.Drawing.Point(23, 545);
             this.textbox_commentRefurbisher.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textbox_commentRefurbisher.Multiline = true;
             this.textbox_commentRefurbisher.Name = "textbox_commentRefurbisher";
@@ -453,7 +455,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(20, 534);
+            this.label17.Location = new System.Drawing.Point(18, 511);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(146, 29);
@@ -564,11 +566,32 @@
             this.textBox_transactionAmount.Size = new System.Drawing.Size(384, 26);
             this.textBox_transactionAmount.TabIndex = 125;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(18, 692);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(198, 29);
+            this.label7.TabIndex = 126;
+            this.label7.Text = "Ersatzteilkosten";
+            // 
+            // textBox_sparePartCosts
+            // 
+            this.textBox_sparePartCosts.Location = new System.Drawing.Point(237, 692);
+            this.textBox_sparePartCosts.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox_sparePartCosts.Name = "textBox_sparePartCosts";
+            this.textBox_sparePartCosts.Size = new System.Drawing.Size(382, 26);
+            this.textBox_sparePartCosts.TabIndex = 127;
+            // 
             // ReparaturenEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1302, 874);
+            this.Controls.Add(this.textBox_sparePartCosts);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox_transactionAmount);
             this.Controls.Add(this.textBox_customer);
             this.Controls.Add(this.label5);
@@ -669,5 +692,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox_customer;
         private System.Windows.Forms.TextBox textBox_transactionAmount;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox_sparePartCosts;
     }
 }

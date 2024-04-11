@@ -342,6 +342,9 @@
     <Compile Include="DBManager.cs" />
     <Compile Include="APIs\GoogleAPIHandler.cs" />
     <Compile Include="APIs\GoogleSheetsConfig.cs" />
+    <Compile Include="EvaluationsCalculationLogic.cs" />
+    <Compile Include="Evaluations\EvaluationNewApproach.cs" />
+    <Compile Include="Evaluations\EvaluationsTempDataStorage.cs" />
     <Compile Include="HelperClassTemp.cs" />
     <Compile Include="ConstsAndEnums\RunningCosts.cs" />
     <Compile Include="Protokollierung\MultipleOrderlinesOrderIDInput.cs">

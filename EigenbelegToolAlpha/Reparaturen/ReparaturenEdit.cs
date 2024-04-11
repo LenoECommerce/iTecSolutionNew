@@ -49,6 +49,7 @@ namespace EigenbelegToolAlpha
             string internalNumber = textBox_ReparaturenInternalNumber.Text;
             string dateBought = textBox_reparaturenDateBought.Text;
             string device = "";
+            string externalCosts = textBox_sparePartCosts.Text;
             string storage = comboBox__reparaturenStorage.Text;
             string transactionAmount = textBox_reparaturenTransactionAmount.Text;
             string imei = textBox__reparaturenIMEI.Text;
@@ -74,10 +75,10 @@ namespace EigenbelegToolAlpha
             string[] attributes = new string[] { "Intern", "Kaufdatum", "Geraet", "Kaufbetrag", "IMEI", "Speicher",
                                             "Kommentar", "CommentRefurbisher", "BatteryCapacity",
                                             "ChargingCycles", "BuyBackGrade", "EBReferenz", "Hauptteile", "Farbe", "Besteuerung", "Zustand",
-                                            "Spendermonat", "Spenderjahr", "SelectedDefects"};
+                                            "Spendermonat", "Spenderjahr", "SelectedDefects", "ExterneKosten"};
             string[] values = new string[] { internalNumber, dateBought, device, transactionAmount, imei, storage,
                                              comment, commentRefurbisher, batteryCapacity, chargingCycles,
-                                             buybackGrade, referenceToEB, Reparaturen.usedSpareParts, color, taxes, condition, donorMonth, donorYear,selectedDefects };
+                                             buybackGrade, referenceToEB, Reparaturen.usedSpareParts, color, taxes, condition, donorMonth, donorYear,selectedDefects, externalCosts };
             try
             {
                 //Datasync
@@ -117,7 +118,7 @@ namespace EigenbelegToolAlpha
                 transactionAmountValue = BackMarketAPIHandler.GetFieldOrder1LayerArray(orderId, "orderlines", "price");
             }
 
-            textBox_reparaturenTransactionAmount.Text = $"{transactionAmountValue}€";
+            textBox_transactionAmount.Text = $"{transactionAmountValue}€";
             textBox_customer.Text = customerValue;
 
             // deny editing the values
@@ -155,6 +156,7 @@ namespace EigenbelegToolAlpha
             comboBox_ReparaturEditColor.Text = Reparaturen.color;
             comboBox_ReparaturEditTaxes.Text = Reparaturen.taxes;
             comboBox_ReparaturEditCondition.Text = Reparaturen.condition;
+            textBox_sparePartCosts.Text = Reparaturen.externalCosts;
         }
 
 
