@@ -27,13 +27,20 @@ namespace EigenbelegToolAlpha
         }
         private string AdaptShippingNumber(string input)
         {
+            // case: dhl express
             if (input.Substring(0,2) == "JJ")
             {
                 var length = input.Length;
                 return input.Substring(1,length-1);
             }
+            else if (input.Length > 20)
+            {
+                // dpd for DE
+                return input.Substring(8, 14);
+            }
             else
             {
+                // france
                 return input.Substring(8, 14);
             }
         }
