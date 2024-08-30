@@ -45,6 +45,14 @@ namespace EigenbelegToolAlpha
             { "iPhone 13 Mini", "13.0" },
             { "iPhone 13 Pro", "13.1" },
             { "iPhone 13 Pro Max", "13.2" },
+            { "iPhone 14", "13.2" },
+            { "iPhone 14 Plus", "13.2" },
+            { "iPhone 14 Pro", "13.2" },
+            { "iPhone 14 Pro Max", "13.2" },
+            { "iPhone 15", "13.2" },
+            { "iPhone 15 Plus", "13.2" },
+            { "iPhone 15 Pro", "13.2" },
+            { "iPhone 15 Pro Max", "13.2" },
         };
         public static Dictionary<string, string> modelleDictionarySamsung = new Dictionary<string, string>
         {
