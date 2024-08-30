@@ -15,6 +15,7 @@ namespace EigenbelegToolAlpha.Sonstiges
         {
             { "Silver", "Silber"},
             { "Spacegray", "Schwarz / Grau"},
+            { "Space Black", "Schwarz / Grau"},
             { "Midnight", "Schwarz / Grau"},
             { "Space Gray", "Schwarz / Grau"},
             { "Black", "Schwarz / Grau"},
@@ -33,7 +34,8 @@ namespace EigenbelegToolAlpha.Sonstiges
             { "Sierra Blue", "Blau"},
             { "Blue", "Blau"},
             { "Gold", "Gold"},
-            { "Coral", "Orange" }
+            { "Coral", "Orange" },
+            { "Deep Purple", "Violett" }
         };
 
         public static Dictionary<string, string> NSYSStorageCatalog = new Dictionary<string, string>
